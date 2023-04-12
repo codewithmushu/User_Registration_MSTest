@@ -6,10 +6,10 @@ namespace Registration_Test
     public class UnitTestUC1
     {
         [TestMethod]
-        public void Main_ValidFirstNameInput_ReturnsValid()
+        public void Main_ValidLastNameInput_ReturnsValid()
         {
             // Arrange
-            var input = new StringReader("John\n");
+            var input = new StringReader("Doe\n");
             Console.SetIn(input);
 
             var output = new StringWriter();
@@ -19,15 +19,14 @@ namespace Registration_Test
             Program.Main(new string[] { });
 
             // Assert
-            Assert.AreEqual("Please enter your first name:\r\nValid first name entered.\r\n", output.ToString());
+            Assert.AreEqual("Please enter your last name:\r\nValid last name entered.\r\n", output.ToString());
         }
-
 
         [TestMethod]
-        public void Main_InvalidFirstNameInput_ReturnsInvalid()
+        public void Main_InvalidLastNameInput_ReturnsInvalid()
         {
             // Arrange
-            var input = new StringReader("john\n");
+            var input = new StringReader("doe\n");
             Console.SetIn(input);
 
             var output = new StringWriter();
@@ -37,7 +36,8 @@ namespace Registration_Test
             Program.Main(new string[] { });
 
             // Assert
-            Assert.AreEqual("Please enter your first name:\r\nInvalid first name entered.\r\n", output.ToString());
+            Assert.AreEqual("Please enter your last name:\r\nInvalid last name entered.\r\n", output.ToString());
         }
     }
+       
 }
